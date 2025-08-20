@@ -9,4 +9,5 @@
 # but all the other dependencies above are required!
 
 profiles\_setup.lua
+profiles\ZezRetro-Diablo.lua
 profiles\_inject.lua
