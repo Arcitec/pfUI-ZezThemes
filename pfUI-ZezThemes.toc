@@ -1,0 +1,12 @@
+## Interface: 11200
+## Title: |cff33ffccpf|cffffffffUI [ZezThemes]
+## Author: Zezez @ Turtle WoW (Tel'Abim)
+## Notes: Zezez Themes for pfUI. Clean and minimalistic. Inspired by World of Warcraft's Classic UI.
+## Version: 1.0.0
+## Dependencies: pfUI, pfUI-CustomMedia, pfUI-eliteoverlay, pfUI-Gryphons
+
+# NOTE: "pfUI-fonts" is not required by these themes at the moment,
+# but all the other dependencies above are required!
+
+profiles\_setup.lua
+profiles\_inject.lua
