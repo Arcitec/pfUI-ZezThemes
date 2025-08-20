@@ -10,4 +10,5 @@
 
 profiles\_setup.lua
 profiles\ZezRetro-Diablo.lua
+profiles\ZezRetro-Gryphons.lua
 profiles\_inject.lua
