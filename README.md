@@ -7,6 +7,13 @@ Zezez Themes for pfUI. Clean and minimalistic. Inspired by World of Warcraft's C
 
 ## Installation
 
+### Easy Method (Recommended)
+
+- Use [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/), which makes it very easy to install and update addons.
+- Install this addon, and everything from the "Requirements" section below.
+
+### Manual Installation
+
 - Install everything from the "Requirements" section below.
 - Download the latest version of [pfUI-ZezThemes](https://github.com/Arcitec/pfUI-ZezThemes/archive/refs/heads/main.zip).
 - Extract the ZIP file.
