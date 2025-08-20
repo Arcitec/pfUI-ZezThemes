@@ -42,5 +42,11 @@ system which improves inventory management. But if you insist on using the basic
 
 ## Available Themes
 
+The following themes are available via pfUI's settings:
+
 - `ZezRetro-Diablo`
 - `ZezRetro-Gryphons`
+
+*To activate a theme, go to "pfUI Config: Settings: General: Profiles" (dropdown menu).*
+
+*Select a theme, and then press "Load Profile".*
