@@ -811,10 +811,10 @@ pfUI_ZezThemes.profiles["ZezRetro-Diablo"] = {
 	},
 	position = {
 		QuestTimerFrame = {
-			anchor = "TOPRIGHT",
+			anchor = "RIGHT",
 			parent = "UIParent",
 			xpos = -3,
-			ypos = -197,
+			ypos = 95,
 		},
 		WorldMapFrame = {
 			alpha = 1,
@@ -828,6 +828,12 @@ pfUI_ZezThemes.profiles["ZezRetro-Diablo"] = {
 			parent = "UIParent",
 			xpos = 733,
 			ypos = -6,
+		},
+		pfDurability = {
+			anchor = "TOPRIGHT",
+			parent = "UIParent",
+			xpos = -13,
+			ypos = -197,
 		},
 	},
 	questlog = {
