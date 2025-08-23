@@ -50,6 +50,16 @@ The following themes are available via pfUI's settings:
 - `ZezRetro-Diablo`
 - `ZezRetro-Gryphons`
 
-*To activate a theme, go to "pfUI Config: Settings: General: Profiles" (dropdown menu).*
 
-*Select a theme, and then press "Load Profile".*
+## Activating a Theme
+
+To activate a theme, go to *"pfUI Config: Settings: General: Profiles" (dropdown menu).*
+
+Select a theme, and then press *"Load Profile".*
+
+
+## Applying Theme Updates
+
+If you update this addon, pfUI requires you to manually activate the theme again
+to see the changes. This is because pfUI saves separate per-character theme
+configurations, which contain a permanent *copy* of the last-loaded theme's settings.
