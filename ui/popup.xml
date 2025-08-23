@@ -16,7 +16,7 @@
 
         <Layers>
             <Layer level="ARTWORK">
-                <FontString name="$parentTitle" inherits="GameFontNormal" text="ZezThemes Updated">
+                <FontString name="$parentTitle" inherits="GameFontNormal">
                     <Anchors>
                         <Anchor point="TOP" relativePoint="TOP">
                             <Offset x="0" y="-18" />

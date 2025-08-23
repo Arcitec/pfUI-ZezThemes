@@ -57,14 +57,20 @@ function pfUI_ZezThemes:UpdateCheck()
 	end
 
 	if db_version ~= current_version then
-		local msg_popup = "A new version of ZezThemes has been installed (v"
-			.. current_version
-			.. ").\n\n"
-			.. "Please load the pfUI profile again on all characters, to apply the update."
-		local msg_print = string.gsub(msg_popup, "\n+", " ")
+		local msg_title = "ZezThemes " .. (db_version == nil and "Installed" or "Updated")
+		local msg_text = "A new version of ZezThemes has been installed (v" .. current_version .. ").\n\n"
+
+		if db_version == nil then
+			msg_text = msg_text .. "Please load the pfUI profile on all characters, to apply the theme."
+		else
+			msg_text = msg_text .. "Please load the pfUI profile again on all characters, to apply the update."
+		end
+
+		local msg_print = string.gsub(msg_text, "\n+", " ")
 
 		self:print(msg_print)
-		ZezThemesPopupText:SetText(msg_popup)
+		ZezThemesPopupTitle:SetText(msg_title)
+		ZezThemesPopupText:SetText(msg_text)
 		ZezThemesPopup:Show()
 
 		-- Don't display the notification again until the next update.
