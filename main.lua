@@ -53,11 +53,19 @@ end
 -- since that's stored in a SavedVar and may contain outdated profile data.
 -- NOTE: This event fires after `ADDON_LOADED` and `VARIABLES_LOADED`.
 function pfUI_ZezThemes:PLAYER_ENTERING_WORLD()
+	-- Determine whether to disable pfUI's basic "Bags" skin.
+	-- NOTE: This is necessary when using third-party bag addons. For example,
+	-- you would see multiple Bank windows if you use Bagshui + pfUI Bags together.
+	local disable_bags_skin = Bagshui ~= nil
+
 	-- NOTE: It's safe to register profiles made for old pfUI versions. pfUI's
 	-- profile loader always performs auto-upgrades of outdated profiles. It
 	-- automatically fills in missing defaults, and then migrates old fields
 	-- by checking `["version"]` and progressively modernizing the settings.
 	for profile_name, profile in pairs(self.profiles) do
+		-- Disable pfUI's own "Bags" skin if using a 3rd party bag-addon.
+		profile.disabled.bags = (disable_bags_skin and "1" or "0")
+
 		-- Register the profile in pfUI's global SavedVars.
 		pfUI_profiles[profile_name] = profile
 	end
