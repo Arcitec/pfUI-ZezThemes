@@ -35,12 +35,24 @@ You must also install the following addons:
 - [pfUI-Gryphons](https://github.com/mrrosh/pfUI-Gryphons)
 - [Bagshui](https://github.com/veechs/Bagshui) (Optional)
 
-Bagshui is highly recommended, since all of my themes turn off pfUI's own, simple
-"vanilla bag" theming to avoid conflicts with Bagshui. It's a far superior bag
-system which improves inventory management. But if you insist on using the basic
-"vanilla" bags, you can re-enable pfUI's bag theming via the following setting:
+Bagshui is highly recommended. It's a far superior bag system which improves
+inventory management, and it perfectly follows pfUI's active theme design.
 
-*"pfUI Config: Components: Modules: Disable Module bags".*
+
+## Dynamic Per-Character Themes
+
+All themes are dynamic and will automatically adjust themselves based on the
+active character's class and their loaded addons whenever the theme is applied.
+
+- Right Panel's "First/Left-most Slot":
+  - Hunters: Shows the hunter's ranged weapon ammunition counter.
+  - Warlocks: Shows how many soul shards you are carrying.
+  - Everyone Else: Shows how many free bag slots are available.
+  - You can manually change the panel's contents via *"pfUI Config: Panel: Right
+    Panel - Left".*
+- pfUI's Vanilla Bags Skin:
+  - The "basic vanilla bags skin" will automatically enable/disable itself based
+    on whether the Bagshui addon is loaded, thus avoiding bag addon conflicts.
 
 
 ## Available Themes
