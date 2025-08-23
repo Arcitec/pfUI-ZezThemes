@@ -1,0 +1,72 @@
+-- SPDX-FileCopyrightText: 2025 Arcitec (https://github.com/Arcitec/)
+-- SPDX-License-Identifier: CC-BY-NC-SA-4.0
+
+pfUI_ZezThemes = {
+	profiles = {},
+}
+
+pfUI_ZezThemes.CopyTable = pfUI.api.CopyTable
+
+function pfUI_ZezThemes.DeepMerge(src, dst)
+	local lookup_table = {}
+
+	local function _merge(src, dst)
+		if type(src) ~= "table" then
+			return src
+		elseif lookup_table[src] then
+			return lookup_table[src]
+		end
+
+		if type(dst) ~= "table" then
+			dst = {}
+		end
+
+		lookup_table[src] = dst
+
+		for k, v in pairs(src) do
+			if type(v) == "table" then
+				dst[k] = _merge(v, dst[k])
+			else
+				dst[k] = v
+			end
+		end
+
+		return dst
+	end
+
+	return _merge(src, dst)
+end
+
+function pfUI_ZezThemes:Init()
+	self.event_frame = CreateFrame("Frame")
+	self.event_frame:RegisterEvent("PLAYER_ENTERING_WORLD")
+	self.event_frame:SetScript("OnEvent", function()
+		if self[event] then
+			self[event](self, arg1, arg2, arg3, arg4)
+		end
+	end)
+end
+
+-- Register all profiles after the player character data has been loaded and
+-- their SavedVars have been loaded (this also reacts to `/reloadui`).
+-- NOTE: Overwrites any old or customized values in the `pfUI_profiles` database,
+-- since that's stored in a SavedVar and may contain outdated profile data.
+-- NOTE: This event fires after `ADDON_LOADED` and `VARIABLES_LOADED`.
+function pfUI_ZezThemes:PLAYER_ENTERING_WORLD()
+	-- NOTE: It's safe to register profiles made for old pfUI versions. pfUI's
+	-- profile loader always performs auto-upgrades of outdated profiles. It
+	-- automatically fills in missing defaults, and then migrates old fields
+	-- by checking `["version"]` and progressively modernizing the settings.
+	for profile_name, profile in pairs(self.profiles) do
+		-- Register the profile in pfUI's global SavedVars.
+		pfUI_profiles[profile_name] = profile
+	end
+
+	-- Don't react to the event again, since it fires after every loading screen.
+	self.event_frame:UnregisterEvent("PLAYER_ENTERING_WORLD")
+
+	-- Release injector table reference to allow garbage collection.
+	pfUI_ZezThemes = nil
+end
+
+pfUI_ZezThemes:Init()
