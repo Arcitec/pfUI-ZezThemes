@@ -1,6 +1,7 @@
 # pfUI: ZezThemes
 
-Zezez Themes for pfUI. Clean and minimalistic. Inspired by World of Warcraft's Classic UI.
+Zezez Themes for pfUI. Clean and minimalistic.
+Inspired by World of Warcraft's Classic UI.
 
 - [Official Home](https://github.com/Arcitec/pfUI-ZezThemes)
 
@@ -9,7 +10,9 @@ Zezez Themes for pfUI. Clean and minimalistic. Inspired by World of Warcraft's C
 
 ### Easy Method (Recommended)
 
-- Use [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/), which makes it very easy to install and update addons.
+- Use [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/),
+  which makes it very easy to install and update addons. Or alternatively, you
+  can use Turtle WoW's launcher, which also has a Git installation feature.
 - Install this addon, and everything from the "Requirements" section below.
 
 ### Manual Installation
