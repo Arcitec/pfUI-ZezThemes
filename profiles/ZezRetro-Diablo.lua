@@ -775,7 +775,7 @@ pfUI_ZezThemes.profiles["ZezRetro-Diablo"] = {
 		},
 		right = {
 			center = "time",
-			left = "ammo",
+			left = "bagspace",
 			right = "gold",
 		},
 		seconds = "0",

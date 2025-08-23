@@ -37,6 +37,26 @@ function pfUI_ZezThemes.DeepMerge(src, dst)
 	return _merge(src, dst)
 end
 
+function pfUI_ZezThemes:DetectDynamicSlot()
+	-- Default: Bag Space.
+	-- Example: "5 (47/52)"
+	local dynamic_slot = "bagspace"
+
+	if self.player_class == "HUNTER" then
+		-- Hunter: Ammo Counter
+		-- Example: "Ammo: 957"
+		-- NOTE: Warriors and Rogues also need Bow/Gun ammo, but it's pretty
+		-- uninteresting for them, and most prefer Thrown for pulling instead.
+		dynamic_slot = "ammo"
+	elseif self.player_class == "WARLOCK" then
+		-- Warlock: Soulshard Counter
+		-- Example: "Soulshards: 21"
+		dynamic_slot = "soulshard"
+	end
+
+	return dynamic_slot
+end
+
 function pfUI_ZezThemes:Init()
 	self.event_frame = CreateFrame("Frame")
 	self.event_frame:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -53,6 +73,12 @@ end
 -- since that's stored in a SavedVar and may contain outdated profile data.
 -- NOTE: This event fires after `ADDON_LOADED` and `VARIABLES_LOADED`.
 function pfUI_ZezThemes:PLAYER_ENTERING_WORLD()
+	-- Detect the current player's class.
+	_, self.player_class = UnitClass("player")
+
+	-- Determine what to display in the current character's dynamic panel slot.
+	local dynamic_slot = self:DetectDynamicSlot()
+
 	-- Determine whether to disable pfUI's basic "Bags" skin.
 	-- NOTE: This is necessary when using third-party bag addons. For example,
 	-- you would see multiple Bank windows if you use Bagshui + pfUI Bags together.
@@ -63,6 +89,9 @@ function pfUI_ZezThemes:PLAYER_ENTERING_WORLD()
 	-- automatically fills in missing defaults, and then migrates old fields
 	-- by checking `["version"]` and progressively modernizing the settings.
 	for profile_name, profile in pairs(self.profiles) do
+		-- Set the right panel's first slot to the dynamic choice.
+		profile.panel.right.left = dynamic_slot
+
 		-- Disable pfUI's own "Bags" skin if using a 3rd party bag-addon.
 		profile.disabled.bags = (disable_bags_skin and "1" or "0")
 
