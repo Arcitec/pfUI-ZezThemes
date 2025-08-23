@@ -4,6 +4,7 @@
 ## Notes: Zezez Themes for pfUI. Clean and minimalistic. Inspired by World of Warcraft's Classic UI.
 ## Version: 1.1.0
 ## Dependencies: pfUI, pfUI-CustomMedia, pfUI-eliteoverlay, pfUI-Gryphons
+## OptionalDeps: Bagshui
 
 # NOTE: "pfUI-fonts" is not required by these themes at the moment,
 # but all the other dependencies above are required!
