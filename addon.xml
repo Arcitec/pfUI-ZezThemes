@@ -4,9 +4,9 @@
     <Include file="ui\popup.xml" />
 
     <!-- Addon Code -->
-    <Script file="main.lua" />
+    <Include file="main.lua" />
 
     <!-- Themes -->
-    <Script file="profiles\ZezRetro-Diablo.lua" />
-    <Script file="profiles\ZezRetro-Gryphons.lua" />
+    <Include file="profiles\ZezRetro-Diablo.lua" />
+    <Include file="profiles\ZezRetro-Gryphons.lua" />
 </Ui>
