@@ -9,6 +9,4 @@
 # NOTE: "pfUI-fonts" is not required by these themes at the moment,
 # but all the other dependencies above are required!
 
-main.lua
-profiles\ZezRetro-Diablo.lua
-profiles\ZezRetro-Gryphons.lua
+addon.xml
