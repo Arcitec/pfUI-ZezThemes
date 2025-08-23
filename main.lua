@@ -1,9 +1,19 @@
 -- SPDX-FileCopyrightText: 2025 Arcitec (https://github.com/Arcitec/)
 -- SPDX-License-Identifier: CC-BY-NC-SA-4.0
 
+local _G = _G or getfenv(0)
+
+local ADDON_NAME = "pfUI-ZezThemes"
+
+pfUI_ZezThemes_DB = {}
+
 pfUI_ZezThemes = {
 	profiles = {},
 }
+
+function pfUI_ZezThemes:print(msg)
+	DEFAULT_CHAT_FRAME:AddMessage("|cff33ffccpf|cffffffffUI [ZezThemes]: " .. msg)
+end
 
 pfUI_ZezThemes.CopyTable = pfUI.api.CopyTable
 
@@ -35,6 +45,31 @@ function pfUI_ZezThemes.DeepMerge(src, dst)
 	end
 
 	return _merge(src, dst)
+end
+
+function pfUI_ZezThemes:UpdateCheck()
+	local current_version = GetAddOnMetadata(ADDON_NAME, "Version")
+	local db_version = pfUI_ZezThemes_DB.version
+
+	if current_version == nil then
+		self:print("Unable to detect current version. Please reinstall the latest version of this addon.")
+		return
+	end
+
+	if db_version ~= current_version then
+		local msg_popup = "A new version of ZezThemes has been installed (v"
+			.. current_version
+			.. ").\n\n"
+			.. "Please load the pfUI profile again on all characters, to apply the update."
+		local msg_print = string.gsub(msg_popup, "\n+", " ")
+
+		self:print(msg_print)
+		ZezThemesPopupText:SetText(msg_popup)
+		ZezThemesPopup:Show()
+
+		-- Don't display the notification again until the next update.
+		pfUI_ZezThemes_DB.version = current_version
+	end
 end
 
 function pfUI_ZezThemes:DetectDynamicSlot()
@@ -98,6 +133,9 @@ function pfUI_ZezThemes:PLAYER_ENTERING_WORLD()
 		-- Register the profile in pfUI's global SavedVars.
 		pfUI_profiles[profile_name] = profile
 	end
+
+	-- Detect whether ZezThemes has been updated and needs to be applied again.
+	self:UpdateCheck()
 
 	-- Don't react to the event again, since it fires after every loading screen.
 	self.event_frame:UnregisterEvent("PLAYER_ENTERING_WORLD")

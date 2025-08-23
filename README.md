@@ -12,7 +12,7 @@ Inspired by World of Warcraft's Classic UI.
 
 - Use [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/),
   which makes it very easy to install and update addons. Or alternatively, you
-  can use Turtle WoW's launcher, which also has a Git installation feature.
+  can use **Turtle WoW's launcher**, which also has a Git installation feature.
 - Install this addon, and everything from the "Requirements" section below.
 
 ### Manual Installation
@@ -75,3 +75,7 @@ Select a theme, and then press *"Load Profile".*
 If you update this addon, pfUI requires you to manually activate the theme again
 to see the changes. This is because pfUI saves separate per-character theme
 configurations, which contain a permanent *copy* of the last-loaded theme's settings.
+
+You don't need to keep track of updates manually. Whenever a new version of this
+theme is installed, you'll receive a friendly in-game notification dialog,
+reminding you to refresh your theme settings!
